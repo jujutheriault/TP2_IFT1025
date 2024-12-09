@@ -10,6 +10,10 @@ import java.util.Scanner;
  * sauvegarder des fichiers ou quitter l'application.
  */
 public class DIROgueClient {
+	/**
+	 *
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		String serverAddress = null;
 		int serverPort = 0;
