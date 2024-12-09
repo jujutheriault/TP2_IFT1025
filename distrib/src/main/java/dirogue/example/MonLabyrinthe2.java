@@ -1,5 +1,6 @@
 package dirogue.example;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,6 +59,12 @@ public class MonLabyrinthe2 implements Labyrinthe, Serializable {
 
     public void ajouteCorridor(int e1ID, int e2ID) throws PieceNotFoundException {
         //TODO: Ajouter un corridor entre deux pièces avec les identifiants fournis
+        Piece p1 = getPieceByID(e1ID);
+        Piece p2 = getPieceByID(e2ID);
+        if(p1 == null || p2 == null){
+            throw new PieceNotFoundException();
+        }
+        addEdge(p1, p2);
     }
 
     /**
@@ -85,7 +92,19 @@ public class MonLabyrinthe2 implements Labyrinthe, Serializable {
      */
     public Piece[] getPiecesConnectees(Piece e) {
         //TODO: Trouver les pièces connectées
-        return new Piece[0];
+        List<Piece> pieceConnected = new ArrayList<>();
+        int nb = 0;
+
+        if(adjList.containsKey(e.getID())){
+            for(int i = 0; i < adjList.get(e.getID()).size(); i++ ){
+                List<Integer> id = adjList.get(e.getID());
+                for(int j : id){
+                    nb ++;
+                    pieceConnected.add(getPieceByID(j));
+                }
+            }
+        }
+        return pieceConnected.toArray(new Piece[nb]);
     }
 
     private void addEdge(Piece e1, Piece e2) {
