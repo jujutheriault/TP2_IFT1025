@@ -124,6 +124,23 @@ public class ReplayView extends ViewBase {
     protected void createUI() {
         //TODO: Créer l'interface utilisateur de Replay
         rootPane = new VBox();
-        // ...
+        rootPane.setPadding(new Insets(10));
+
+        messageLabel = new Label();
+        imageView = new ImageView();
+        rootPane.getChildren().add(messageLabel);
+        rootPane.getChildren().add(imageView);
+
+        HBox buttonBox = new HBox();
+        backwardButton = new Button("Backword");
+        forwardButton = new Button("Forward");
+        buttonBox.getChildren().add(backwardButton);
+        buttonBox.getChildren().add(forwardButton);
+        buttonBox.setSpacing(10);
+        exitButton = new Button("Exit");
+
+        rootPane.getChildren().add(buttonBox);
+        rootPane.getChildren().add(exitButton);
+
     }
 }
