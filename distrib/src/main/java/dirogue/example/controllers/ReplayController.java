@@ -109,7 +109,10 @@ public class ReplayController extends ControllerBase {
      */
     private void goBackward() {
         //TODO: Aller à l'étape précédente du rapport. En atteignant la première étape, il devrait rester là et ne pas générer d'erreur.
-        showCurrentMessageAndImage();
+        if(currentIndex > 0){
+            currentIndex--;
+            showCurrentMessageAndImage();
+        }
     }
 
     /**
@@ -117,7 +120,9 @@ public class ReplayController extends ControllerBase {
      */
     private void goForward() {
         //TODO: Aller à l'étape suivante du rapport. En atteignant la dernière étape, il devrait rester là et ne pas générer d'erreur.
-        showCurrentMessageAndImage();
+        if(currentIndex < encounters.length){
+            currentIndex++;
+            showCurrentMessageAndImage();}
     }
 
     /**
