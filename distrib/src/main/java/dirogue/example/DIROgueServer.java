@@ -44,6 +44,13 @@ public class DIROgueServer {
 			s.addEventHandler((cmd, cmdArgs) -> {
 				if (cmd.equals("corridor")) {
 					//TODO: Implémenter le handler et ajouter un corridor.
+					int e1ID = Integer.parseInt(cmdArgs[0]);
+					int e2ID = Integer.parseInt(cmdArgs[1]);
+					try {
+						l.ajouteCorridor(e1ID, e2ID);
+					} catch (PieceNotFoundException e){
+						System.out.println("On ne trouve pas des pièces");
+					}
 				}
 			});
 
@@ -57,6 +64,15 @@ public class DIROgueServer {
 			s.addEventHandler((cmd, cmdArgs) -> {
 				if (cmd.equals("save")) {
 					//TODO: Sauvegarder le fichier de rapport de l'aventure.
+					if(cmdArgs.length > 0){
+						String path = cmdArgs[0];
+						try{
+							m.sauvegarderRapport(path);
+						} catch (IOException e){
+							System.out.println("Il y a erreur lors de sauvegarder du rapport.");
+						}
+					}
+
 				}
 			});
 
