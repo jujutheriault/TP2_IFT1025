@@ -132,7 +132,7 @@ public class ReplayView extends ViewBase {
         rootPane.getChildren().add(imageView);
 
         HBox buttonBox = new HBox();
-        backwardButton = new Button("Backword");
+        backwardButton = new Button("Backward");
         forwardButton = new Button("Forward");
         buttonBox.getChildren().add(backwardButton);
         buttonBox.getChildren().add(forwardButton);
