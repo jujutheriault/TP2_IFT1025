@@ -69,7 +69,7 @@ public class DIROgueServer {
 						try{
 							m.sauvegarderRapport(path);
 						} catch (IOException e){
-							System.out.println("Il y a erreur lors de sauvegarder du rapport.");
+							System.out.println("Erreur lors de la sauvegarde du rapport.");
 						}
 					}
 
