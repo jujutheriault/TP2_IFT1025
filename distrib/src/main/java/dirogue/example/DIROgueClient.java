@@ -15,15 +15,15 @@ public class DIROgueClient {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String serverAddress = null;
-		int serverPort = 0;
+		String serverAddress = "127.0.0.1";
+		int serverPort = 1370;
 
 		Socket socket = null;
 		PrintWriter out = null; // utilisé pour écrire dans le socket avec des commandes comme println()
 
 		// TODO: Se connecter au serveur.
 		try {
-			socket = new Socket("127.0.0.1", 1370);
+			socket = new Socket(serverAddress, serverPort);
 			out = new PrintWriter(socket.getOutputStream());
 
 			Scanner scanner = new Scanner(System.in);
