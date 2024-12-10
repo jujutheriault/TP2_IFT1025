@@ -55,12 +55,27 @@ public class MainController extends ControllerBase {
      * chargement.
      */
     private void loadTextFile() {
-        // TODO: Charger le fichier de rapport avec un FileChooser et afficher le texte
-        // dans la zone de texte, puis activer le bouton de relecture pour l'étape suivante.
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Load report");
+
         File selectedFile = fileChooser.showOpenDialog(mainView.getRoot().getScene().getWindow());
-        
-        // ...
+
+        if (selectedFile != null) {
+            StringBuilder sb = new StringBuilder();
+
+            try(BufferedReader br = new BufferedReader(new FileReader(selectedFile))){
+                String line;
+                while ((line = br.readLine()) != null) {
+                    sb.append(line).append("\n");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            mainView.getTextArea().setText(sb.toString());
+
+            Button replayButton = mainView.getReplayButton();
+            replayButton.setDisable(false);
+        }
     }
 }
