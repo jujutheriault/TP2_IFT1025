@@ -24,10 +24,11 @@ public class DIROgueClient {
 		// TODO: Se connecter au serveur.
 		try {
 			socket = new Socket(serverAddress, serverPort);
-			out = new PrintWriter(socket.getOutputStream());
+			out = new PrintWriter(socket.getOutputStream(), true);
 
 			Scanner scanner = new Scanner(System.in);
 			String input;
+			out.flush();
 
 			while (true) {
 				System.out.println("Entrer une commande (load, save, exit):");
