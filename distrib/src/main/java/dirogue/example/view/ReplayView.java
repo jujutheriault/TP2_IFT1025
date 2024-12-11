@@ -1,6 +1,7 @@
 package dirogue.example.view;
 
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -125,22 +126,25 @@ public class ReplayView extends ViewBase {
         //TODO: Créer l'interface utilisateur de Replay
         rootPane = new VBox();
         rootPane.setPadding(new Insets(10));
+        rootPane.setSpacing(10);
+        rootPane.setAlignment(Pos.CENTER);
 
         messageLabel = new Label();
         imageView = new ImageView();
-        rootPane.getChildren().add(messageLabel);
-        rootPane.getChildren().add(imageView);
+        imageView.setFitWidth(300);
+        imageView.setFitHeight(300);
 
-        HBox buttonBox = new HBox();
         backwardButton = new Button("Backward");
         forwardButton = new Button("Forward");
-        buttonBox.getChildren().add(backwardButton);
-        buttonBox.getChildren().add(forwardButton);
-        buttonBox.setSpacing(10);
         exitButton = new Button("Exit");
 
-        rootPane.getChildren().add(buttonBox);
-        rootPane.getChildren().add(exitButton);
+        HBox buttonBox = new HBox();
+        buttonBox.setSpacing(10);
+        buttonBox.setAlignment(Pos.CENTER);
+        buttonBox.getChildren().addAll(backwardButton, forwardButton);
+
+        rootPane.getChildren().addAll(messageLabel, imageView, buttonBox, exitButton);
+
 
     }
 }
