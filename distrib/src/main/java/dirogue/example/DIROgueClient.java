@@ -1,3 +1,10 @@
+/**
+ * IFT1025 - Travail Pratique 2 
+ * 13 décembre 2024 
+ * 
+ * Justine Theriault - 20231918
+ * Heyun Li - 2026953
+ */
 package dirogue.example;
 
 import java.io.BufferedReader;
@@ -15,24 +22,24 @@ import java.util.Scanner;
 public class DIROgueClient {
 	/**
 	 *  
-	 * Méthode principale de la classe DIROgueClient qui s'occupe de la connexion au serveur et 
+	 * Méthode principale qui établit la connexion au serveur et gère l'interaction avec l'utilisateurs pour envoyer 
+	 * des commandes. 
 	 * 
-	 * @param args
+	 * @param args Arguments de la ligne de commande 
 	 */
 	public static void main(String[] args) {
-		String serverAddress = "127.0.0.1";
-		int serverPort = 1370;
+		String serverAddress = "127.0.0.1"; // Adresse du serveur 
+		int serverPort = 1370; // Port du serveur 
 
 		Socket socket = null;
 		PrintWriter out = null; // utilisé pour écrire dans le socket avec des commandes comme println()
 
 		try {
 			socket = new Socket(serverAddress, serverPort); // Connexion au Serveur avec le port 
-			out = new PrintWriter(socket.getOutputStream(), true); 
+			out = new PrintWriter(socket.getOutputStream(), true); // Autoflush activé pour envoyé les données immédiatement
 
-			Scanner scanner = new Scanner(System.in);
+			Scanner scanner = new Scanner(System.in); // Scanner qui lit les entrées de l'utilisateur 
 			String input;
-			out.flush(); // Utilisé pour optimiser la mémoire du serveur 
 
 			while (true) {
 				System.out.println("Entrer une commande (load, save, exit):");
@@ -66,11 +73,12 @@ public class DIROgueClient {
 			}
 
 			System.out.println("Sortie du programme.");
-			scanner.close();
+			scanner.close(); // Fermeture du scanner 
 		}catch (IOException e){
 			e.printStackTrace();
 		}
 
+		// Fermeture des ressources 
         if (out != null) {
             out.close();
         }

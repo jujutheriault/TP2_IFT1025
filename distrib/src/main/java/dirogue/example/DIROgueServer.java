@@ -1,3 +1,10 @@
+/**
+ * IFT1025 - Travail Pratique 2 
+ * 13 décembre 2024 
+ * 
+ * Justine Theriault - 20231918
+ * Heyun Li - 2026953
+ */
 package dirogue.example;
 
 import java.io.IOException;
@@ -15,6 +22,12 @@ public class DIROgueServer {
 	static MonLabyrinthe2 l = new MonLabyrinthe2();
 	static MonAventure m = null;
 
+	/**
+	 * 
+	 * Méthode principale qui démarre le serveur DIROgueServer
+	 * 
+	 * @param args Arguents de la ligne de commande
+	 */
 	public static void main(String[] args) {
 
 		try {
@@ -41,15 +54,17 @@ public class DIROgueServer {
 				}
 			});
 
+			// Gestionnaire d'évènements pour la commande "corridor" 
 			s.addEventHandler((cmd, cmdArgs) -> {
 				if (cmd.equals("corridor")) {
-					//TODO: Implémenter le handler et ajouter un corridor.
+					// Creer un ID pour les pièces 
 					int e1ID = Integer.parseInt(cmdArgs[0]);
 					int e2ID = Integer.parseInt(cmdArgs[1]);
 					try {
+						// Ajoute un corridor entre les deux pièces identifiées 
 						l.ajouteCorridor(e1ID, e2ID);
 					} catch (PieceNotFoundException e){
-						System.out.println("On ne trouve pas des pièces");
+						System.out.println("Les pièces données n'existent pas.");
 					}
 				}
 			});
@@ -61,21 +76,21 @@ public class DIROgueServer {
 				}
 			});
 
+			// Gestionnaire d'évenements pour la commande "save" 
 			s.addEventHandler((cmd, cmdArgs) -> {
 				if (cmd.equals("save")) {
-					//TODO: Sauvegarder le fichier de rapport de l'aventure.
 					if(cmdArgs.length > 0){
+						// Prend le chemin du fichier à sauvegarder
 						String path = cmdArgs[0];
 						try{
+							// Sauvegarde le rapport de l'aventure 
 							m.sauvegarderRapport(path);
 						} catch (IOException e){
 							System.out.println("Erreur lors de la sauvegarde du rapport.");
 						}
 					}
-
 				}
 			});
-
 			s.listen();
 
 		} catch (IOException e) {

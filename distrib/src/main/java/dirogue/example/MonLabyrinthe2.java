@@ -1,3 +1,10 @@
+/**
+ * IFT1025 - Travail Pratique 2 
+ * 13 décembre 2024 
+ * 
+ * Justine Theriault - 20231918
+ * Heyun Li - 2026953
+ */
 package dirogue.example;
 
 import java.io.IOException;
@@ -57,14 +64,21 @@ public class MonLabyrinthe2 implements Labyrinthe, Serializable {
         addEdge(e1, e2);
     }
 
+    /**
+     * Ajoute un corridor entre eux pièces identifiées par leur ID. 
+     * 
+     * @param e1ID ID de la première pièce 
+     * @param e2ID ID de la deuxième pièce 
+     * @throws PieceNotFoundException Si l'une des pièces n'existe pas.
+     */
     public void ajouteCorridor(int e1ID, int e2ID) throws PieceNotFoundException {
-        //TODO: Ajouter un corridor entre deux pièces avec les identifiants fournis
         Piece p1 = getPieceByID(e1ID);
         Piece p2 = getPieceByID(e2ID);
+        // Vérifie que les pièces existent 
         if(p1 == null || p2 == null){
             throw new PieceNotFoundException();
         }
-        addEdge(p1, p2);
+        addEdge(p1, p2); // Ajoute un corridor entre les pièces 
     }
 
     /**
@@ -91,20 +105,24 @@ public class MonLabyrinthe2 implements Labyrinthe, Serializable {
      * @return Un tableau de pièces connectées à la pièce donnée.
      */
     public Piece[] getPiecesConnectees(Piece e) {
-        //TODO: Trouver les pièces connectées
-        List<Piece> pieceConnected = new ArrayList<>();
+        List<Piece> pieceConnected = new ArrayList<>(); // Liste qui stocke les pièces connectées à la pièce actuelle 
         int nb = 0;
 
+        // Vérifie si la pièce actuelle possède des connexions dans la liste 
         if(adjList.containsKey(e.getID())){
+
+            // Parcourt les ID des pièces connectées à la pièce actuelle 
             for(int i = 0; i < adjList.get(e.getID()).size(); i++ ){
                 List<Integer> id = adjList.get(e.getID());
+
+                // Pour chaque ID dans la liste 
                 for(int j : id){
-                    nb ++;
-                    pieceConnected.add(getPieceByID(j));
+                    nb ++; // Incrémente le nombre de pièces connectées 
+                    pieceConnected.add(getPieceByID(j)); // Ajoute la pièce actuelle à la liste des pièces connectées 
                 }
             }
         }
-        return pieceConnected.toArray(new Piece[nb]);
+        return pieceConnected.toArray(new Piece[nb]);  // Convertit et retourne un tableau de la liste des pièces connectées 
     }
 
     private void addEdge(Piece e1, Piece e2) {
