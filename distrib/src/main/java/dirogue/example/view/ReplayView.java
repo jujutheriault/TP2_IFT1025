@@ -8,7 +8,7 @@
 package dirogue.example.view;
 
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
+import javafx.geometry.Pos; // Ajout de l'import pour le positionnement des boutons et du texte. Source : https://docs.oracle.com/javase/8/javafx/api/javafx/geometry/Pos.html
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -134,6 +134,17 @@ public class ReplayView extends ViewBase {
         rootPane = new VBox();
         rootPane.setPadding(new Insets(10));
         rootPane.setSpacing(10);
+        /**
+         * Utilisation de Pos pour centrer l'interface. Le code est plus facile à écrire et à lire en utilisant les Pos au lieu 
+         * d'ajuster manuellement les Insets. 
+         * 
+         * La classe Pos permet de spcifier directement l'alignement des éléments dans un conteneur, 
+         * rendant le positionnement plus intuitif. 
+         * 
+         * Voici les deux sources utilisées : 
+         * Source : https://docs.oracle.com/javase/8/javafx/api/javafx/geometry/Pos.html
+         * Source : https://www.geeksforgeeks.org/javafx-pos-class/
+        */
         rootPane.setAlignment(Pos.CENTER);
 
         // Alignement du texte scénario et dimension de l'image associée 
