@@ -72,7 +72,7 @@ public class MainController extends ControllerBase {
             try {
                 // Initialise le BufferedReader
                 br = new BufferedReader(new FileReader(selectedFile));
-                string line; 
+                String line; 
 
                 // Lecture de chaque lignes du fichier et append au StringBuilder
                 while ((line = br.readLine()) != null) {
