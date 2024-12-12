@@ -1,0 +1,23 @@
+13 décembre 2024 
+
+IFT1025 - Travail Pratique 2
+
+Justine Theriault - 20231918
+Heyun Li - 20269538
+
+Division des tâches: 
+
+Tâche 1 et 2 : Heyun et Justine 
+Heyun à fait l'écriture initiale du code et Justine y a apporter quelques ajustements et commentaires. 
+Tâche 3 et 4 : Heyun et Justine 
+Heyun à fait l'écriture initiale du code et Justine y a apporter quelques ajustements et commentaires. 
+Tâche 5 : Justine 
+Justine à fait l'écriture du code, révision par Heyun sans modifications nécéssaires. 
+Tâche 6 et 7 : Heyun 
+Heyun à fait l'écriture du code, révision par Justine sans modifications nécéssaires. 
+Tâche 8 et 9 : Heyun 
+Heyun à fait l'écriture du code, révision par Justine sans modifications nécéssaires. 
+Tâche 10 : Heyun et Justine 
+Heyun et Justine on fait l'écriture de l'interface ensemble. 
+
+Nous avons commencé à travailler sur le travail de façon individuelle lorsque nous nous familiarisons avec le TP, et ensuite avons mis nos idées et code en commun.  
