@@ -18,7 +18,7 @@ Ensuite, dans un des deux terminaux, éxécuter premièrement le fichier DIROgue
 
   java --module-path "C:\javafx-sdk-23.0.1\lib" --add-modules javafx.controls,javafx.fxml,javafx.graphics dirogue.example.DIROgueServer
 
-Attendez de recevoir les instructions du terminal, et éxécuter dans le second terminal le fichier DIROgueClient.java avec la commande suivante : 
+Attendez de recevoir les instructions du terminal, et éxécuter le fichier DIROgueClient.java dans le second terminal avec la commande suivante : 
 
   java --module-path "C:\javafx-sdk-23.0.1\lib" --add-modules javafx.controls,javafx.fxml,javafx.graphics dirogue.example.DIROgueClient
 
@@ -31,6 +31,12 @@ Lorsque la connexion est établie entre le serveur et le port, veuillez suivre l
   ../../../rapport.txt
 
   exit : Sortie du programme et finalisation du serveur.
+
+Finalement, pour afficher l'interface graphique, simplement naviguer au fichier qui contient le pom.xml et éxécuter le code en utilisant Maven :
+
+  cd ../../..
+  mvn clean javafx:run 
+
 
 
 
