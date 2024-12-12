@@ -1,14 +1,14 @@
 package dirogue.example.controllers;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+
 import dirogue.example.App;
 import dirogue.example.view.MainView;
 import dirogue.example.view.ViewBase;
 import javafx.scene.control.Button;
 import javafx.stage.FileChooser;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 
 /**
  * Contrôleur principal pour la vue principale de l'application.
@@ -53,25 +53,43 @@ public class MainController extends ControllerBase {
      * Méthode privée pour charger un fichier texte dans la vue principale.
      * Cette méthode est déclenchée lorsqu'un utilisateur appuie sur le bouton de
      * chargement.
+     * 
      */
     private void loadTextFile() {
+        // Créer l'instance FileChooser pour aller chercher le raport 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Load report");
 
+        // Affiche le dialogue et selectionne le fichier 
         File selectedFile = fileChooser.showOpenDialog(mainView.getRoot().getScene().getWindow());
 
         if (selectedFile != null) {
+            // Initialise StringBuilder pour accumuler le contenu du fichier selectionné 
             StringBuilder sb = new StringBuilder();
+            BufferedReader br = null;
 
-            try(BufferedReader br = new BufferedReader(new FileReader(selectedFile))){
-                String line;
+
+            try {
+                // Initialise le BufferedReader
+                br = new BufferedReader(new FileReader(selectedFile));
+                string line; 
+
+                // Lecture de chaque lignes du fichier et append au StringBuilder
                 while ((line = br.readLine()) != null) {
-                    sb.append(line).append("\n");
+                    sb.append(line).append("\n"); 
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                e.printStackTrace(); // Imprime le stack trace en cas d'erreur 
+            } finally {
+                if (br != null){
+                    try {
+                        br.close();
+                    } catch (Exception ex){
+                        ex.printStackTrace();
+                    }
+                }
             }
-
+            
             mainView.getTextArea().setText(sb.toString());
 
             Button replayButton = mainView.getReplayButton();
