@@ -1,6 +1,9 @@
 package dirogue.example;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
@@ -11,7 +14,9 @@ import java.util.Scanner;
  */
 public class DIROgueClient {
 	/**
-	 *
+	 *  
+	 * Méthode principale de la classe DIROgueClient qui s'occupe de la connexion au serveur et 
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -21,14 +26,13 @@ public class DIROgueClient {
 		Socket socket = null;
 		PrintWriter out = null; // utilisé pour écrire dans le socket avec des commandes comme println()
 
-		// TODO: Se connecter au serveur.
 		try {
-			socket = new Socket(serverAddress, serverPort);
-			out = new PrintWriter(socket.getOutputStream(), true);
+			socket = new Socket(serverAddress, serverPort); // Connexion au Serveur avec le port 
+			out = new PrintWriter(socket.getOutputStream(), true); 
 
 			Scanner scanner = new Scanner(System.in);
 			String input;
-			out.flush();
+			out.flush(); // Utilisé pour optimiser la mémoire du serveur 
 
 			while (true) {
 				System.out.println("Entrer une commande (load, save, exit):");
@@ -36,13 +40,14 @@ public class DIROgueClient {
 
 				if (input.equals("load")) {
 					System.out.println("Entrez le chemin du fichier que vous souhaitez charger :");
-
-					// TODO: Lire le fichier et envoyer les commandes au serveur ligne par ligne.
 					String filePath = scanner.nextLine().trim();
+
+					// Lecture du fichier donné par l'utilisateur selon le chemin spécifié
 					try (BufferedReader filereader = new BufferedReader(new FileReader(filePath))) {
 						String line;
+						// Boucle qui parcourt le fichier ligne par ligne 
 						while ((line = filereader.readLine()) != null) {
-							out.println(line);
+							out.println(line); // Envoie les commandes ligne par ligne 
 						}
 					} catch (IOException e) {
 						e.printStackTrace();

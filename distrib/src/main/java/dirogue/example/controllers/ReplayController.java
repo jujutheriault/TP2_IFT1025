@@ -108,10 +108,10 @@ public class ReplayController extends ControllerBase {
      * Méthode pour naviguer vers la rencontre précédente dans le replay.
      */
     private void goBackward() {
-        //TODO: Aller à l'étape précédente du rapport. En atteignant la première étape, il devrait rester là et ne pas générer d'erreur.
+        // Si l'index est plus grand que 0, on décrémente. Si c'est à 0, aucun message d'erreur apparait et on arrête. 
         if(currentIndex > 0){
-            currentIndex--;
-            showCurrentMessageAndImage();
+            currentIndex--; // Décrémentation de l'index actuel 
+            showCurrentMessageAndImage(); // Affiche le scénario et l'image 
         }
     }
 
@@ -119,10 +119,10 @@ public class ReplayController extends ControllerBase {
      * Méthode pour naviguer vers la rencontre suivante dans le replay.
      */
     private void goForward() {
-        //TODO: Aller à l'étape suivante du rapport. En atteignant la dernière étape, il devrait rester là et ne pas générer d'erreur.
+        // Si l'index est plus petit que les rencontre, on l'incrémente. Si c'Est la dernière, aucun message d'erreur apparait et on arrête. 
         if(currentIndex < encounters.length){
-            currentIndex++;
-            showCurrentMessageAndImage();}
+            currentIndex++; // Incrémentation de l'index actuel 
+            showCurrentMessageAndImage();} // Affiche le scénario et l'image 
     }
 
     /**
