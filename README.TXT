@@ -34,7 +34,7 @@ Lorsque la connexion est établie entre le serveur et le port, veuillez suivre l
 
 Finalement, pour afficher l'interface graphique, simplement naviguer au fichier qui contient le pom.xml et éxécuter le code en utilisant Maven :
 
-  cd ../../..
+  cd ..\..\..
   mvn clean javafx:run 
 
 
