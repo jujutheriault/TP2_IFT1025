@@ -3,7 +3,7 @@
  * 13 décembre 2024 
  * 
  * Justine Theriault - 20231918
- * Heyun Li - 20269538
+ * Heyun Liu - 20269538
  */
 package dirogue.example;
 
