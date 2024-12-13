@@ -2,7 +2,7 @@ IFT1025 - Travail Pratique 2
 13 Décembre 2024 
 
 Justine Theriault - 20231918
-Heyun Li - 20269538
+Heyun Liu - 20269538
 
 * Veuillez noter que nous avions toutes les deux un Mac pour effectuer ce projet *
 
