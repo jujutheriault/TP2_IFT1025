@@ -8,7 +8,7 @@ Heyun Li - 20269538
 
 Afin d'utiliser notre programme, veuillez premièrement ouvrir deux terminaux côte-à-côte et naviguer dans le fichier ou se trouve les fichiers DIROgueCleint.java et DIROgueServer.java (voir exemple qui s'applique à notre cas) : 
 
-  cd distrib/src/main/java
+  cd distrib\src\main\java
 
 Lorsqu'on se trouve dans le bon fichier, compiler le projet en incluant le chemin ou se trouvent les modules JavaFX pour aider à compiler. Il est très important de mentionner la bonne version du javafx-sdk qu'on a de téléchargé, qui peut varier selon l'utilisateur. Faire cette étape dans les deux terminaux. 
 
